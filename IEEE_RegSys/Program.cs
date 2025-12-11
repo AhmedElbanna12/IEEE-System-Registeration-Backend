@@ -1,6 +1,7 @@
 
 using IEEE_RegSys.Context;
 using IEEE_RegSys.Helpers;
+using IEEE_RegSys.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -27,6 +28,10 @@ namespace IEEE_RegSys
             builder.Services.AddDbContext<RegContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.Configure<SendGridSettings>(
+            builder.Configuration.GetSection("SendGrid"));
+
+            builder.Services.AddScoped<ISendGridEmailService, SendGridEmailService>();
 
             // JWT
             var jwtKey = builder.Configuration["Jwt:Key"] ?? "VerySecretKeyReplaceThis";

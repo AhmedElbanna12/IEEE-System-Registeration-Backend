@@ -20,14 +20,16 @@ namespace IEEE_RegSys.Controllers
         private readonly IConfiguration _config;
         private readonly EmailHelper _email;
         private readonly IWebHostEnvironment _env;
+        private readonly ISendGridEmailService _emailService;
 
 
-        public AuthController(RegContext db, IConfiguration config, EmailHelper emailHelper, IWebHostEnvironment env)
+        public AuthController(RegContext db, IConfiguration config, EmailHelper emailHelper, IWebHostEnvironment env, ISendGridEmailService emailService)
         {
             _db = db;
             _config = config;
             _email = emailHelper;
             _env = env;
+            _emailService = emailService;
         }
 
         [HttpPost("register")]
@@ -70,19 +72,13 @@ namespace IEEE_RegSys.Controllers
             _db.Attendees.Add(attendee);
             await _db.SaveChangesAsync();
 
-            // إرسال إيميل قيد المراجعة باستخدام SendGrid
-            try
-            {
-                string subject = "Registration Received";
-                string body = $"<p>Dear {attendee.FullNameEnglish},</p><p>Your registration is under review. We will notify you once approved.</p>";
 
-                await _email.SendEmailAsync(attendee.Email, subject, body);
-            }
-            catch (Exception ex)
-            {
-                // تسجيل الخطأ فقط بدون منع التسجيل
-                Console.WriteLine($"Failed to send pending email: {ex.Message}");
-            }
+            // إرسال إيميل إن الحساب قيد المراجعة
+            await _emailService.SendAsync(attendee.Email,
+                "Registration Received",
+                "Your registration is under review.");
+
+           
 
             return Ok(new { message = "Registered and under review." });
         }
