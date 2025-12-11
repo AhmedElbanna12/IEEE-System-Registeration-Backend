@@ -158,3 +158,6 @@ E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\refint\IEEE_RegSy
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\IEEE_RegSys.pdb
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\IEEE_RegSys.genruntimeconfig.cache
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\ref\IEEE_RegSys.dll
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Release\net8.0\Newtonsoft.Json.dll
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Release\net8.0\SendGrid.dll
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Release\net8.0\StarkbankEcdsa.dll

@@ -1,0 +1,26 @@
+أحمد البنا 
+
+Ahmed Elbanna
+
+01298475758
+
+behera
+
+30133090596878
+
+CS
+
+3
+
+ahmedalbanna142@gmail.com
+
+21
+
+Male
+
+
+  // send pending email
+//  await _emailHelper.SendEmailAsync(attendee.Email, "Registration Received", "Your registration is under review.");
+
+
+

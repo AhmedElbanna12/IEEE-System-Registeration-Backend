@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "E:\\projects\\Backend\\IEEE_RegSys\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|e:\\projects\\backend\\ieee_regsys\\ieee_regsys\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|e:\\projects\\backend\\ieee_regsys\\ieee_regsys\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|e:\\projects\\backend\\ieee_regsys\\ieee_regsys\\controllers\\checkincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\controllers\\checkincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|e:\\projects\\backend\\ieee_regsys\\ieee_regsys\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|e:\\projects\\backend\\ieee_regsys\\ieee_regsys\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|e:\\projects\\backend\\ieee_regsys\\ieee_regsys\\helpers\\emailhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,6 +17,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|e:\\projects\\backend\\ieee_regsys\\ieee_regsys\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|e:\\projects\\backend\\ieee_regsys\\ieee_regsys\\controllers\\checkincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\controllers\\checkincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|e:\\projects\\backend\\ieee_regsys\\ieee_regsys\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|e:\\projects\\backend\\ieee_regsys\\ieee_regsys\\models\\attendee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -82,11 +82,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "RegisterDto.cs",
               "DocumentMoniker": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\Dtos\\RegisterDto.cs",
               "RelativeDocumentMoniker": "IEEE_RegSys\\Dtos\\RegisterDto.cs",
@@ -98,19 +98,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "EmailHelper.cs",
               "DocumentMoniker": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\Helpers\\EmailHelper.cs",
               "RelativeDocumentMoniker": "IEEE_RegSys\\Helpers\\EmailHelper.cs",
               "ToolTip": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\Helpers\\EmailHelper.cs",
               "RelativeToolTip": "IEEE_RegSys\\Helpers\\EmailHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAcwB8AAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T00:07:22.496Z"
+              "WhenOpened": "2025-12-11T00:07:22.496Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "CheckinController.cs",
               "DocumentMoniker": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\Controllers\\CheckinController.cs",
               "RelativeDocumentMoniker": "IEEE_RegSys\\Controllers\\CheckinController.cs",
@@ -122,41 +123,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "IEEE_RegSys\\Controllers\\AuthController.cs",
               "ToolTip": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\Controllers\\AuthController.cs",
               "RelativeToolTip": "IEEE_RegSys\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAcwEgAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAApwBQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-11T00:03:05.541Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AdminController.cs",
               "DocumentMoniker": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "IEEE_RegSys\\Controllers\\AdminController.cs",
               "ToolTip": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\Controllers\\AdminController.cs",
               "RelativeToolTip": "IEEE_RegSys\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA5wBEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAcwDoAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-11T00:18:36.565Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\appsettings.json",
               "RelativeDocumentMoniker": "IEEE_RegSys\\appsettings.json",
               "ToolTip": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\appsettings.json",
               "RelativeToolTip": "IEEE_RegSys\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-10T23:51:17.588Z"
+              "WhenOpened": "2025-12-10T23:51:17.588Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

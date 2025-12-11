@@ -7,3 +7,4 @@ wwwroot\payment\4b78c161-8ba5-4b50-acca-592624ce1191.png
 wwwroot\payment\78b1cc0a-13de-4ca8-a48f-29f50aa31d60.png
 wwwroot\qrcodes\feae002a-7ac6-4870-8e37-5708503df929.png
 wwwroot\qrcodes\98cfd63b-03b2-4dbc-8d25-8be500ea3d96.png
+wwwroot\qrcodes\c177da96-1b79-4dc5-9de7-1a012221121b.png

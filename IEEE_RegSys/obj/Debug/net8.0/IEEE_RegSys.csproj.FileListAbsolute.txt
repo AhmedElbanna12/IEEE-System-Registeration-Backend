@@ -158,3 +158,6 @@ E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Debug\net8.0\QRCoder.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Debug\net8.0\IEEE_RegSys.staticwebassets.runtime.json
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Debug\net8.0\Newtonsoft.Json.dll
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Debug\net8.0\SendGrid.dll
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Debug\net8.0\StarkbankEcdsa.dll

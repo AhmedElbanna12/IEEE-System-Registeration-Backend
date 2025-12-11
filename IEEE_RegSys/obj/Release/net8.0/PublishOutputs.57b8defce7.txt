@@ -38,7 +38,10 @@ E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Micros
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\MimeKit.dll
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\QRCoder.dll
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\SendGrid.dll
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\StarkbankEcdsa.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

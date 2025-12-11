@@ -16,12 +16,13 @@ namespace IEEE_RegSys.Controllers
         private readonly EmailHelper _email;
         private readonly IWebHostEnvironment _env;
 
-
         public AdminController(RegContext db, QRHelper qr, EmailHelper email, IWebHostEnvironment env)
         {
-            _db = db; _qr = qr; _email = email; _env = env;
+            _db = db;
+            _qr = qr;
+            _email = email;
+            _env = env;
         }
-
 
         // GET /api/admin/attendees
         [HttpGet("attendees")]
@@ -33,7 +34,6 @@ namespace IEEE_RegSys.Controllers
             return Ok(list);
         }
 
-
         // POST /api/admin/attendees/{id}/approve
         [HttpPost("attendees/{id}/approve")]
         public async Task<IActionResult> Approve(int id)
@@ -41,9 +41,7 @@ namespace IEEE_RegSys.Controllers
             var att = await _db.Attendees.FindAsync(id);
             if (att == null) return NotFound();
 
-
             att.Status = "Approved";
-
 
             // generate QR
             var qrBytes = _qr.GenerateQrBytes($"attendee:{att.Id};nid:{att.NationalID};name:{att.FullNameEnglish}");
@@ -54,17 +52,26 @@ namespace IEEE_RegSys.Controllers
             await System.IO.File.WriteAllBytesAsync(path, qrBytes);
             att.QRCodePath = Path.Combine("qrcodes", filename);
 
-
             await _db.SaveChangesAsync();
 
-
-            // send email with QR
-            await _email.SendEmailAsync(att.Email, "Registration Approved", "Your registration is approved. Attached is your QR.", new[] { path });
-
+            try
+            {
+                // Send email using SendGrid
+                await _email.SendEmailAsync(
+                    att.Email,
+                    "Registration Approved",
+                    $"<p>Dear {att.FullNameEnglish},</p><p>Your registration has been approved.</p>",
+                    new[] { path } // attach QR
+                );
+            }
+            catch (Exception ex)
+            {
+                // Log the error (optional)
+                Console.WriteLine($"Email sending failed: {ex.Message}");
+            }
 
             return Ok(new { message = "Approved" });
         }
-
 
         // POST /api/admin/attendees/{id}/cancel
         [HttpPost("attendees/{id}/cancel")]
@@ -72,11 +79,24 @@ namespace IEEE_RegSys.Controllers
         {
             var att = await _db.Attendees.FindAsync(id);
             if (att == null) return NotFound();
+
             att.Status = "Canceled";
             await _db.SaveChangesAsync();
-            await _email.SendEmailAsync(att.Email, "Registration Canceled", "Your registration has been canceled.");
+
+            try
+            {
+                await _email.SendEmailAsync(
+                    att.Email,
+                    "Registration Canceled",
+                    $"<p>Dear {att.FullNameEnglish},</p><p>Your registration has been canceled.</p>"
+                );
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Email sending failed: {ex.Message}");
+            }
+
             return Ok(new { message = "Canceled" });
         }
     }
 }
-

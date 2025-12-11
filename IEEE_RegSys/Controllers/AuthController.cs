@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.IO;
+using static QRCoder.PayloadGenerator;
 
 namespace IEEE_RegSys.Controllers
 {
@@ -17,7 +18,7 @@ namespace IEEE_RegSys.Controllers
     {
         private readonly RegContext _db;
         private readonly IConfiguration _config;
-        private readonly EmailHelper _emailHelper;
+        private readonly EmailHelper _email;
         private readonly IWebHostEnvironment _env;
 
 
@@ -25,16 +26,15 @@ namespace IEEE_RegSys.Controllers
         {
             _db = db;
             _config = config;
-            _emailHelper = emailHelper;
+            _email = emailHelper;
             _env = env;
         }
-
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromForm] RegisterDto dto)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             var attendee = new Attendee
             {
@@ -49,32 +49,44 @@ namespace IEEE_RegSys.Controllers
                 Age = dto.Age,
                 Gender = dto.Gender,
                 PaymentCode = dto.PaymentCode,
-                Status = "Pending"
+                Status = "Pending",
+                CreatedAt = DateTime.UtcNow
             };
 
-
+            // حفظ صورة الدفع إذا موجودة
             if (dto.PaymentImage != null)
             {
                 var folder = Path.Combine(_env.WebRootPath ?? "wwwroot", "payment");
                 if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
+
                 var fileName = Guid.NewGuid() + Path.GetExtension(dto.PaymentImage.FileName);
                 var filePath = Path.Combine(folder, fileName);
                 using var stream = System.IO.File.Create(filePath);
                 await dto.PaymentImage.CopyToAsync(stream);
+
                 attendee.PaymentImagePath = Path.Combine("payment", fileName);
             }
-
 
             _db.Attendees.Add(attendee);
             await _db.SaveChangesAsync();
 
+            // إرسال إيميل قيد المراجعة باستخدام SendGrid
+            try
+            {
+                string subject = "Registration Received";
+                string body = $"<p>Dear {attendee.FullNameEnglish},</p><p>Your registration is under review. We will notify you once approved.</p>";
 
-            // send pending email
-          // await _emailHelper.SendEmailAsync(attendee.Email, "Registration Received", "Your registration is under review.");
-
+                await _email.SendEmailAsync(attendee.Email, subject, body);
+            }
+            catch (Exception ex)
+            {
+                // تسجيل الخطأ فقط بدون منع التسجيل
+                Console.WriteLine($"Failed to send pending email: {ex.Message}");
+            }
 
             return Ok(new { message = "Registered and under review." });
         }
+
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest req, [FromServices] JwtHelper jwtHelper)
