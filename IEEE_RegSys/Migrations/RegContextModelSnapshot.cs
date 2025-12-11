@@ -67,6 +67,9 @@ namespace IEEE_RegSys.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsNeedBus")
+                        .HasColumnType("bit");
+
                     b.Property<string>("NationalID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

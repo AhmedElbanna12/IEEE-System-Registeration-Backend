@@ -51,6 +51,7 @@ namespace IEEE_RegSys.Controllers
                 Age = dto.Age,
                 Gender = dto.Gender,
                 PaymentCode = dto.PaymentCode,
+                IsNeedBus = dto.IsNeedBus,
                 Status = "Pending",
                 CreatedAt = DateTime.UtcNow
             };
@@ -75,8 +76,10 @@ namespace IEEE_RegSys.Controllers
 
             // إرسال إيميل إن الحساب قيد المراجعة
             await _emailService.SendAsync(attendee.Email,
-                "Registration Received",
-                "Your registration is under review.");
+                "Thanks for registering!",
+                "Hello!, We received your registration and it’s now under review." +
+                "We will contact you once it's approved." +
+                "Thank you!");
 
            
 

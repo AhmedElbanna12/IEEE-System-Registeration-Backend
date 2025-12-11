@@ -45,6 +45,8 @@ namespace IEEE_RegSys.Models
 
         public string? QRCodePath { get; set; }
 
+        public bool IsNeedBus { get; set; }
+
 
         public DateTime? CheckInTime { get; set; }
 

@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "D:\\Projects\\IEEE-System-Registeration-Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\helpers\\sendgridemailservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\helpers\\sendgridemailservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\models\\attendee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\models\\attendee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\settings\\sendgridsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\settings\\sendgridsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\helpers\\isendgridemailservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\helpers\\isendgridemailservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\helpers\\sendgridemailservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\helpers\\sendgridemailservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -28,6 +32,10 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/LAPTOP_7C8B6RA5/Registeration/True/SqlTable/dbo.Attendees.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|d:\\projects\\ieee-system-registeration-backend\\ieee_regsys\\helpers\\isendgridemailservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30D31C46-9EDB-4455-9A86-2C07070C6667}|IEEE_RegSys\\IEEE_RegSys.csproj|solutionrelative:ieee_regsys\\helpers\\isendgridemailservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -37,34 +45,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "Attendee.cs",
+              "DocumentMoniker": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Models\\Attendee.cs",
+              "RelativeDocumentMoniker": "IEEE_RegSys\\Models\\Attendee.cs",
+              "ToolTip": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Models\\Attendee.cs",
+              "RelativeToolTip": "IEEE_RegSys\\Models\\Attendee.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAA2wDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T22:22:31.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegisterDto.cs",
+              "DocumentMoniker": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Dtos\\RegisterDto.cs",
+              "RelativeDocumentMoniker": "IEEE_RegSys\\Dtos\\RegisterDto.cs",
+              "ToolTip": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Dtos\\RegisterDto.cs",
+              "RelativeToolTip": "IEEE_RegSys\\Dtos\\RegisterDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T22:21:38.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\appsettings.json",
               "RelativeDocumentMoniker": "IEEE_RegSys\\appsettings.json",
               "ToolTip": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\appsettings.json",
               "RelativeToolTip": "IEEE_RegSys\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-12-11T18:19:19.228Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "dbo.Attendees [Data]",
+              "DocumentIndex": 7,
+              "Title": "dbo.Attendees.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/LAPTOP_7C8B6RA5/Registeration/True/SqlTable/dbo.Attendees.sql",
-              "ToolTip": "dbo.Attendees [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/LAPTOP_7C8B6RA5/Registeration/True/SqlTable/dbo.Attendees.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-12-11T19:12:46.402Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T19:12:46.402Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Program.cs",
               "RelativeDocumentMoniker": "IEEE_RegSys\\Program.cs",
@@ -77,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "SendGridSettings.cs",
               "DocumentMoniker": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Settings\\SendGridSettings.cs",
               "RelativeDocumentMoniker": "IEEE_RegSys\\Settings\\SendGridSettings.cs",
@@ -90,20 +131,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "SendGridEmailService .cs",
               "DocumentMoniker": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Helpers\\SendGridEmailService .cs",
               "RelativeDocumentMoniker": "IEEE_RegSys\\Helpers\\SendGridEmailService .cs",
               "ToolTip": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Helpers\\SendGridEmailService .cs",
               "RelativeToolTip": "IEEE_RegSys\\Helpers\\SendGridEmailService .cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwC4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-11T18:56:13.141Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "ISendGridEmailService .cs",
               "DocumentMoniker": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Helpers\\ISendGridEmailService .cs",
               "RelativeDocumentMoniker": "IEEE_RegSys\\Helpers\\ISendGridEmailService .cs",
@@ -116,24 +157,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "IEEE_RegSys\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\Controllers\\AuthController.cs",
               "RelativeToolTip": "IEEE_RegSys\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwDQAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-11T16:52:34.574Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         }

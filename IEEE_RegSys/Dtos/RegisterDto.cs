@@ -23,5 +23,8 @@ namespace IEEE_RegSys.Dtos
         public string PaymentCode { get; set; } = null!;
 
         public IFormFile? PaymentImage { get; set; }
+
+        public bool IsNeedBus { get; set; }
+
     }
 }
