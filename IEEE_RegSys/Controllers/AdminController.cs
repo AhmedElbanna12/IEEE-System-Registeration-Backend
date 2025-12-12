@@ -76,11 +76,10 @@ namespace IEEE_RegSys.Controllers
 
             // 6️⃣ دمج البيانات والمتغيرات
             var qrBase64 = Convert.ToBase64String(qrBytes);
-            var qrBase64Image = $"data:image/png;base64,{qrBase64}";
 
             html = html.Replace("{{FULL_NAME}}", att.FullNameEnglish)
                        .Replace("{{EVENT_NAME}}", "IEEE Event 2025")
-                       .Replace("{{QR_BASE64}}", qrBase64Image)
+                        .Replace("{{QR_BASE64}}", qrBase64)
                        .Replace("{{NID}}", att.NationalID)
                        .Replace("{{EMAIL}}", att.Email)
                        .Replace("{{PHONE}}", att.Phone)

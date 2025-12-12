@@ -31,3 +31,4 @@ wwwroot\payment\a3d0ec29-3f00-44e2-bbb5-e47cde3c4808.png
 wwwroot\payment\3e44604e-bc64-4d82-8170-a2f1330c567e.png
 wwwroot\qrcodes\fba8c6b1-fb9d-455d-93eb-8cd07c508407.png
 wwwroot\email-templates\email-template.html
+wwwroot\qrcodes\62717f5b-3f90-4bd1-b57a-70abb98a5669.png
