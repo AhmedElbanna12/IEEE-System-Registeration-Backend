@@ -67,6 +67,9 @@ namespace IEEE_RegSys.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsIEEEIAN")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsNeedBus")
                         .HasColumnType("bit");
 

@@ -27,3 +27,7 @@ wwwroot\qrcodes\feae002a-7ac6-4870-8e37-5708503df929.png
 wwwroot\payment\0c818781-039e-4c52-b748-4d348ebf8e9d.png
 wwwroot\payment\d04564b2-d529-4706-8abe-c8a951cc3512.png
 wwwroot\payment\a4fa9388-3e10-4e9d-96ef-07eec9c29853.png
+wwwroot\payment\a3d0ec29-3f00-44e2-bbb5-e47cde3c4808.png
+wwwroot\payment\3e44604e-bc64-4d82-8170-a2f1330c567e.png
+wwwroot\qrcodes\fba8c6b1-fb9d-455d-93eb-8cd07c508407.png
+wwwroot\email-templates\email-template.html

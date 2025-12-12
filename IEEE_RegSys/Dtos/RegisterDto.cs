@@ -26,5 +26,8 @@ namespace IEEE_RegSys.Dtos
 
         public bool IsNeedBus { get; set; }
 
+        public bool ISIEEEIAN { get; set; }
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Components.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace IEEE_RegSys.Models
 {
@@ -47,7 +48,7 @@ namespace IEEE_RegSys.Models
 
         public bool IsNeedBus { get; set; }
 
-
+        public bool IsIEEEIAN { get; set; }
         public DateTime? CheckInTime { get; set; }
 
         [Required]

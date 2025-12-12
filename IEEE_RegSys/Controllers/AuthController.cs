@@ -64,6 +64,7 @@ namespace IEEE_RegSys.Controllers
                     Gender = dto.Gender,
                     PaymentCode = dto.PaymentCode,
                     IsNeedBus = dto.IsNeedBus,
+                    IsIEEEIAN = dto.ISIEEEIAN , 
                     Status = "Pending",
                     CreatedAt = DateTime.UtcNow
                 };

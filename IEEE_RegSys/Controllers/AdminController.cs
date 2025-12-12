@@ -1,5 +1,6 @@
 ﻿using IEEE_RegSys.Context;
 using IEEE_RegSys.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,19 +10,23 @@ namespace IEEE_RegSys.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class AdminController : ControllerBase
     {
         private readonly RegContext _db;
         private readonly QRHelper _qr;
-        private readonly EmailHelper _email;
+        private readonly EmailHelper _emails;
         private readonly IWebHostEnvironment _env;
 
-        public AdminController(RegContext db, QRHelper qr, EmailHelper email, IWebHostEnvironment env)
+        private readonly ISendGridEmailService _email;
+
+        public AdminController(RegContext db, QRHelper qr, ISendGridEmailService email, IWebHostEnvironment env , EmailHelper emails)
         {
             _db = db;
             _qr = qr;
             _email = email;
             _env = env;
+            _emails = emails;
         }
 
         // GET /api/admin/attendees
@@ -34,44 +39,78 @@ namespace IEEE_RegSys.Controllers
             return Ok(list);
         }
 
-        // POST /api/admin/attendees/{id}/approve
+
+
         [HttpPost("attendees/{id}/approve")]
         public async Task<IActionResult> Approve(int id)
         {
+            // 1️⃣ جلب المشارك
             var att = await _db.Attendees.FindAsync(id);
             if (att == null) return NotFound();
 
+            // 2️⃣ تغيير الحالة
             att.Status = "Approved";
 
-            // generate QR
+            // 3️⃣ توليد QR
             var qrBytes = _qr.GenerateQrBytes($"attendee:{att.Id};nid:{att.NationalID};name:{att.FullNameEnglish}");
+
+            // 4️⃣ حفظ QR في wwwroot/qrcodes
             var folder = Path.Combine(_env.WebRootPath ?? "wwwroot", "qrcodes");
-            if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
-            var filename = Guid.NewGuid() + ".png";
-            var path = Path.Combine(folder, filename);
-            await System.IO.File.WriteAllBytesAsync(path, qrBytes);
-            att.QRCodePath = Path.Combine("qrcodes", filename);
+            Directory.CreateDirectory(folder);
+
+            var fileName = $"{Guid.NewGuid()}.png";
+            var filePath = Path.Combine(folder, fileName);
+
+            await System.IO.File.WriteAllBytesAsync(filePath, qrBytes);
+
+            // حفظ المسار النسبي في قاعدة البيانات
+            att.QRCodePath = Path.Combine("qrcodes", fileName);
 
             await _db.SaveChangesAsync();
 
+            // 5️⃣ قراءة HTML Template
+            var templatePath = Path.Combine(_env.WebRootPath ?? "wwwroot", "email-templates", "email-template.html");
+            if (!System.IO.File.Exists(templatePath)) return StatusCode(500, "Email template not found.");
+
+            var html = await System.IO.File.ReadAllTextAsync(templatePath);
+
+            // 6️⃣ دمج البيانات والمتغيرات
+            var qrBase64 = Convert.ToBase64String(qrBytes);
+            var qrBase64Image = $"data:image/png;base64,{qrBase64}";
+
+            html = html.Replace("{{FULL_NAME}}", att.FullNameEnglish)
+                       .Replace("{{EVENT_NAME}}", "IEEE Event 2025")
+                       .Replace("{{QR_BASE64}}", qrBase64Image)
+                       .Replace("{{NID}}", att.NationalID)
+                       .Replace("{{EMAIL}}", att.Email)
+                       .Replace("{{PHONE}}", att.Phone)
+                       .Replace("{{DATE}}", DateTime.UtcNow.ToString("yyyy-MM-dd"));
+
+            // 7️⃣ إرسال الإيميل
             try
             {
-                // Send email using SendGrid
-                await _email.SendEmailAsync(
-                    att.Email,
-                    "Registration Approved",
-                    $"<p>Dear {att.FullNameEnglish},</p><p>Your registration has been approved.</p>",
-                    new[] { path } // attach QR
-                );
+                // ممكن تختار دمج الـ QR في الـ HTML أو كمرفق
+                await _email.SendWithAttachmentAsync(
+     att.Email,
+     "Your Registration is Approved!",
+     html,
+     "QRCode.png",
+     "image/png",
+     qrBytes
+ );
+
             }
             catch (Exception ex)
             {
-                // Log the error (optional)
-                Console.WriteLine($"Email sending failed: {ex.Message}");
+                Console.WriteLine($"Email Error: {ex.Message}");
+                return StatusCode(500, "Error sending approval email.");
             }
 
-            return Ok(new { message = "Approved" });
+            return Ok(new { message = "Approved & email sent." });
         }
+
+
+
 
         // POST /api/admin/attendees/{id}/cancel
         [HttpPost("attendees/{id}/cancel")]
@@ -85,7 +124,7 @@ namespace IEEE_RegSys.Controllers
 
             try
             {
-                await _email.SendEmailAsync(
+                await _emails.SendEmailAsync(
                     att.Email,
                     "Registration Canceled",
                     $"<p>Dear {att.FullNameEnglish},</p><p>Your registration has been canceled.</p>"
