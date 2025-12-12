@@ -120,6 +120,9 @@
                   "PaymentImage": {
                     "type": "string",
                     "format": "binary"
+                  },
+                  "IsNeedBus": {
+                    "type": "boolean"
                   }
                 }
               },
@@ -158,6 +161,9 @@
                   "style": "form"
                 },
                 "PaymentImage": {
+                  "style": "form"
+                },
+                "IsNeedBus": {
                   "style": "form"
                 }
               }

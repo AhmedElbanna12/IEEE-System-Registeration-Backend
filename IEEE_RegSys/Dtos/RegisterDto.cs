@@ -20,7 +20,7 @@ namespace IEEE_RegSys.Dtos
 
         public string Gender { get; set; } = null!;
        
-        public string PaymentCode { get; set; } = null!;
+        public string? PaymentCode { get; set; } = null!;
 
         public IFormFile? PaymentImage { get; set; }
 

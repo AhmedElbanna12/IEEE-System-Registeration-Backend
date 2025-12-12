@@ -4690,23 +4690,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hmn2_\\.nuget\\packages\\": {},
+    "C:\\Users\\EL-Masria\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\IEEE_RegSys.csproj",
+      "projectUniqueName": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\IEEE_RegSys.csproj",
       "projectName": "IEEE_RegSys",
-      "projectPath": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\IEEE_RegSys.csproj",
-      "packagesPath": "C:\\Users\\hmn2_\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\IEEE-System-Registeration-Backend\\IEEE_RegSys\\obj\\",
+      "projectPath": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\IEEE_RegSys.csproj",
+      "packagesPath": "C:\\Users\\EL-Masria\\.nuget\\packages\\",
+      "outputPath": "E:\\projects\\Backend\\IEEE_RegSys\\IEEE_RegSys\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\hmn2_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\EL-Masria\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4715,6 +4715,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
