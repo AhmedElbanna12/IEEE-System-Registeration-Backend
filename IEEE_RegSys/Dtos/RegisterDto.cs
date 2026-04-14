@@ -28,6 +28,8 @@ namespace IEEE_RegSys.Dtos
 
         public bool ISIEEEIAN { get; set; }
 
+        public string? PromoCode { get; set; }
+
 
     }
 }

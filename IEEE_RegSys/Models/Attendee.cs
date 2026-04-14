@@ -54,5 +54,9 @@ namespace IEEE_RegSys.Models
         [Required]
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+
+        public int? PromoCodeId { get; set; }
+        public PromoCode? PromoCode { get; set; }
     }
 }

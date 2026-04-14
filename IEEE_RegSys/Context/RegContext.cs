@@ -12,6 +12,8 @@ namespace IEEE_RegSys.Context
         public DbSet<Attendee> Attendees { get; set; }
         public DbSet<User> Users { get; set; }
 
+        public DbSet<PromoCode> PromoCodes { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

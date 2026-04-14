@@ -48,6 +48,42 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "IEEE_RegSys.Controllers.AdminController",
+    "Method": "ExportCsv",
+    "RelativePath": "api/Admin/attendees/export-csv",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IEEE_RegSys.Controllers.AdminController",
+    "Method": "CreatePromo",
+    "RelativePath": "api/Admin/promocodes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "IEEE_RegSys.Dtos.CreatePromoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "IEEE_RegSys.Controllers.AdminController",
+    "Method": "GetPromos",
+    "RelativePath": "api/Admin/promocodes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "IEEE_RegSys.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
@@ -139,6 +175,11 @@
       {
         "Name": "ISIEEEIAN",
         "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "PromoCode",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],

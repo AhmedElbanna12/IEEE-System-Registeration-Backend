@@ -38,6 +38,7 @@ E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Micros
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\MimeKit.dll
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\NETCore.MailKit.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\QRCoder.dll
 E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\PubTmp\Out\SendGrid.dll

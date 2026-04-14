@@ -31,7 +31,7 @@ namespace IEEE_RegSys
             builder.Services.Configure<SendGridSettings>(
             builder.Configuration.GetSection("SendGrid"));
 
-            builder.Services.AddScoped<ISendGridEmailService, SendGridEmailService>();
+           // builder.Services.AddScoped<ISendGridEmailService, SendGridEmailService>();
 
             // JWT
             var jwtKey = builder.Configuration["Jwt:Key"] ?? "VerySecretKeyReplaceThis";
@@ -68,9 +68,9 @@ namespace IEEE_RegSys
 
             builder.Services.AddScoped<JwtHelper>();
             builder.Services.AddScoped<QRHelper>();
-            builder.Services.AddScoped<EmailHelper>();
+           // builder.Services.AddScoped<EmailHelper>();
 
-
+            builder.Services.AddScoped<GmailEmailService>();
             var app = builder.Build();
             app.UseCors("AllowAll");
 

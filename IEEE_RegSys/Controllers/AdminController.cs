@@ -1,10 +1,14 @@
 ﻿using IEEE_RegSys.Context;
+using IEEE_RegSys.Dtos;
 using IEEE_RegSys.Helpers;
+using IEEE_RegSys.Models;
+using IEEE_RegSys.Settings;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Text;
 
 namespace IEEE_RegSys.Controllers
 {
@@ -15,18 +19,21 @@ namespace IEEE_RegSys.Controllers
     {
         private readonly RegContext _db;
         private readonly QRHelper _qr;
-        private readonly EmailHelper _emails;
+       // private readonly EmailHelper _emails;
         private readonly IWebHostEnvironment _env;
 
-        private readonly ISendGridEmailService _email;
+        // private readonly ISendGridEmailService _email;
 
-        public AdminController(RegContext db, QRHelper qr, ISendGridEmailService email, IWebHostEnvironment env , EmailHelper emails)
+        private readonly GmailEmailService _gmailEmailService;
+
+
+        public AdminController(RegContext db, QRHelper qr, IWebHostEnvironment env , GmailEmailService gmailEmailService)
         {
             _db = db;
             _qr = qr;
-            _email = email;
             _env = env;
-            _emails = emails;
+            _gmailEmailService = gmailEmailService;
+
         }
 
         // GET /api/admin/attendees
@@ -79,7 +86,6 @@ namespace IEEE_RegSys.Controllers
 
             html = html.Replace("{{FULL_NAME}}", att.FullNameEnglish)
                        .Replace("{{EVENT_NAME}}", "IEEE Event 2025")
-                        .Replace("{{QR_BASE64}}", qrBase64)
                        .Replace("{{NID}}", att.NationalID)
                        .Replace("{{EMAIL}}", att.Email)
                        .Replace("{{PHONE}}", att.Phone)
@@ -89,7 +95,7 @@ namespace IEEE_RegSys.Controllers
             try
             {
                 // ممكن تختار دمج الـ QR في الـ HTML أو كمرفق
-                await _email.SendWithAttachmentAsync(
+                await _gmailEmailService.SendWithAttachmentAsync(
      att.Email,
      "Your Registration is Approved!",
      html,
@@ -123,11 +129,11 @@ namespace IEEE_RegSys.Controllers
 
             try
             {
-                await _emails.SendEmailAsync(
-                    att.Email,
-                    "Registration Canceled",
-                    $"<p>Dear {att.FullNameEnglish},</p><p>Your registration has been canceled.</p>"
-                );
+                await _gmailEmailService.SendEmailAsync(
+     att.Email,
+     "Registration Canceled",
+     $"<p>Dear {att.FullNameEnglish},</p><p>Your registration has been canceled.</p>"
+ );
             }
             catch (Exception ex)
             {
@@ -136,5 +142,98 @@ namespace IEEE_RegSys.Controllers
 
             return Ok(new { message = "Canceled" });
         }
+        [HttpGet("attendees/export-csv")]
+        public async Task<IActionResult> ExportCsv()
+        {
+            var attendees = await _db.Attendees.AsNoTracking().ToListAsync();
+
+            var sb = new StringBuilder();
+
+            // Header
+            sb.AppendLine(
+                "Id," +
+                "FullNameArabic," +
+                "FullNameEnglish," +
+                "Phone," +
+                "Governorate," +
+                "NationalID," +
+                "College," +
+                "AcademicYear," +
+                "Email," +
+                "Age," +
+                "Gender," +
+                "IsNeedBus," +
+                "IsIEEEIAN"
+            );
+
+            foreach (var a in attendees)
+            {
+                sb.AppendLine(
+                    $"{a.Id}," +
+                    $"{EscapeCsv(a.FullNameArabic)}," +
+                    $"{EscapeCsv(a.FullNameEnglish)}," +
+                    $"{a.Phone}," +
+                    $"{EscapeCsv(a.Governorate)}," +
+                    $"{a.NationalID}," +
+                    $"{EscapeCsv(a.College)}," +
+                    $"{EscapeCsv(a.AcademicYear)}," +
+                    $"{a.Email}," +
+                    $"{a.Age}," +
+                    $"{a.Gender}," +
+                    $"{a.IsNeedBus}," +
+                    $"{a.IsIEEEIAN}"
+                );
+            }
+
+            return File(
+                Encoding.UTF8.GetBytes(sb.ToString()),
+                "text/csv",
+                "attendees-full.csv"
+            );
+        }
+        private static string EscapeCsv(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return "";
+
+            // لو فيه فاصلة أو " أو سطر جديد
+            if (value.Contains(",") || value.Contains("\"") || value.Contains("\n"))
+            {
+                value = value.Replace("\"", "\"\"");
+                return $"\"{value}\"";
+            }
+
+            return value;
+        }
+
+
+        [HttpPost("promocodes")]
+        public async Task<IActionResult> CreatePromo([FromBody] CreatePromoDto dto)
+        {
+            var promo = new PromoCode
+            {
+                Code = dto.Code,
+                DiscountPercentage = dto.DiscountPercentage,
+                UsageLimit = dto.UsageLimit,
+                ExpiryDate = dto.ExpiryDate,
+                IsActive = true,
+                UsedCount = 0
+            };
+
+            _db.PromoCodes.Add(promo);
+            await _db.SaveChangesAsync();
+
+            return Ok(promo);
+        }
+
+
+        [HttpGet("promocodes")]
+        public async Task<IActionResult> GetPromos()
+        {
+            var promos = await _db.PromoCodes.ToListAsync();
+            return Ok(promos);
+        }
+
+
     }
 }

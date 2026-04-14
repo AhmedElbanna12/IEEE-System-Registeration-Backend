@@ -324,3 +324,5 @@ D:\Projects\IEEE-System-Registeration-Backend\IEEE_RegSys\obj\Release\net8.0\ref
 D:\Projects\IEEE-System-Registeration-Backend\IEEE_RegSys\obj\Release\net8.0\IEEE_RegSys.pdb
 D:\Projects\IEEE-System-Registeration-Backend\IEEE_RegSys\obj\Release\net8.0\IEEE_RegSys.genruntimeconfig.cache
 D:\Projects\IEEE-System-Registeration-Backend\IEEE_RegSys\obj\Release\net8.0\ref\IEEE_RegSys.dll
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\obj\Release\net8.0\swae.build.ex.cache
+E:\projects\Backend\IEEE_RegSys\IEEE_RegSys\bin\Release\net8.0\NETCore.MailKit.dll

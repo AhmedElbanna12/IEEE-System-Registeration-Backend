@@ -2,6 +2,7 @@
 using IEEE_RegSys.Dtos;
 using IEEE_RegSys.Helpers;
 using IEEE_RegSys.Models;
+using IEEE_RegSys.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,21 +19,28 @@ namespace IEEE_RegSys.Controllers
     {
         private readonly RegContext _db;
         private readonly IConfiguration _config;
-        private readonly EmailHelper _email;
+      // private readonly EmailHelper _email;
         private readonly IWebHostEnvironment _env;
-        private readonly ISendGridEmailService _emailService;
+       // private readonly ISendGridEmailService _emailService;
         private readonly ILogger<AdminController> _logger;
 
+        private readonly GmailEmailService _gmailEmailService;
 
-        public AuthController(RegContext db, IConfiguration config, EmailHelper emailHelper, IWebHostEnvironment env, ISendGridEmailService emailService , ILogger<AdminController> logger)
+        public AuthController(RegContext db, IConfiguration config, IWebHostEnvironment env,
+ILogger<AdminController> logger, GmailEmailService gmailEmailService
+
+)
         {
             _db = db;
             _config = config;
-            _email = emailHelper;
+          // _email = emailHelper;
             _env = env;
-            _emailService = emailService;
+          // _emailService = emailService;
             _logger = logger;
+            _gmailEmailService = gmailEmailService;
+
         }
+
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromForm] RegisterDto dto)
@@ -41,7 +49,7 @@ namespace IEEE_RegSys.Controllers
 
             try
             {
-                // Model validation
+                // 1️⃣ Validate model
                 if (!ModelState.IsValid)
                 {
                     _logger.LogWarning("⚠ Invalid model state: {@model}", ModelState);
@@ -50,6 +58,7 @@ namespace IEEE_RegSys.Controllers
 
                 _logger.LogInformation("📥 Received DTO: {@dto}", dto);
 
+                // 2️⃣ Create Attendee
                 var attendee = new Attendee
                 {
                     FullNameArabic = dto.FullNameArabic,
@@ -64,53 +73,68 @@ namespace IEEE_RegSys.Controllers
                     Gender = dto.Gender,
                     PaymentCode = dto.PaymentCode,
                     IsNeedBus = dto.IsNeedBus,
-                    IsIEEEIAN = dto.ISIEEEIAN , 
+                    IsIEEEIAN = dto.ISIEEEIAN,
                     Status = "Pending",
                     CreatedAt = DateTime.UtcNow
                 };
 
-                // Save Payment Image
+                // 3️⃣ Save Payment Image
                 if (dto.PaymentImage != null)
                 {
-                    _logger.LogInformation("📸 Payment image received: Name={name}, Size={size}",
-                        dto.PaymentImage.FileName, dto.PaymentImage.Length);
-
                     var folder = Path.Combine(_env.WebRootPath ?? "wwwroot", "payment");
+
                     if (!Directory.Exists(folder))
-                    {
                         Directory.CreateDirectory(folder);
-                        _logger.LogInformation("📂 Created payment folder: {folder}", folder);
-                    }
 
                     var fileName = Guid.NewGuid() + Path.GetExtension(dto.PaymentImage.FileName);
                     var filePath = Path.Combine(folder, fileName);
-
-                    _logger.LogInformation("💾 Saving payment image to: {path}", filePath);
 
                     using var stream = System.IO.File.Create(filePath);
                     await dto.PaymentImage.CopyToAsync(stream);
 
                     attendee.PaymentImagePath = Path.Combine("payment", fileName);
                 }
-                else
+
+                // 4️⃣ Promo Code Validation
+                PromoCode? promo = null;
+
+                if (!string.IsNullOrWhiteSpace(dto.PromoCode))
                 {
-                    _logger.LogWarning("⚠ No payment image uploaded!");
+                    promo = await _db.PromoCodes
+                        .FirstOrDefaultAsync(p =>
+                            p.Code == dto.PromoCode &&
+                            p.IsActive &&
+                            (p.ExpiryDate == null || p.ExpiryDate > DateTime.UtcNow) &&
+                            p.UsedCount < p.UsageLimit);
+
+                    if (promo == null)
+                        return BadRequest("Invalid or expired promo code");
+
+                    // link promo to attendee
+                    attendee.PromoCodeId = promo.Id;
+
+                    // increase usage
+                    promo.UsedCount++;
                 }
 
-                // DB Add
+                // 5️⃣ Save to DB (single transaction)
                 _db.Attendees.Add(attendee);
                 await _db.SaveChangesAsync();
 
                 _logger.LogInformation("✅ Saved attendee with ID={id}", attendee.Id);
 
-                // Send Email
-                _logger.LogInformation("📧 Sending pending email to: {email}", attendee.Email);
+                await _gmailEmailService.SendEmailAsync(
+    attendee.Email,
+    "Welcome to IEEE Event",
+    "<h2>Your registration is received!</h2><p>We will review your request.</p>"
+);
 
-                await _emailService.SendAsync(attendee.Email,
-                    "Thanks for registering!",
-                    "Hello!, We received your registration and it’s now under review." +
-                    "We will contact you once it's approved." +
-                    "Thank you!");
+                //// 6️⃣ Send Email
+                //await _emailService.SendAsync(
+                //    attendee.Email,
+                //    "Thanks for registering!",
+                //    "Hello! We received your registration and it's under review. We will contact you once it's approved. Thank you!"
+                //);
 
                 _logger.LogInformation("📨 Email sent successfully to {email}", attendee.Email);
 
@@ -119,15 +143,12 @@ namespace IEEE_RegSys.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex,
-                    "🔥 ERROR in Register endpoint: Message={msg}, Inner={inner}, Stack={stack}",
-                    ex.Message,
-                    ex.InnerException?.Message,
-                    ex.StackTrace);
+                    "🔥 ERROR in Register endpoint: {msg}",
+                    ex.Message);
 
                 return StatusCode(500, "An error occurred while processing your request.");
             }
         }
-
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest req, [FromServices] JwtHelper jwtHelper)
